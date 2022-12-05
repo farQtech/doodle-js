@@ -4,8 +4,8 @@
   "description": "A vanilla JavaScript framework to draw on anything web.",
   "main": "src/doodle.js",
   "scripts": {
-    "test": "jest"
-
+    "test": "jest",
+    "bundle": "webpack"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,8 @@
   },
   "homepage": "https://github.com/farQtech/doodle-js#readme",
   "devDependencies": {
-    "jest": "^29.3.1"
+    "jest": "^29.3.1",
+    "webpack": "^5.58.2",
+    "webpack-cli": "^4.9.0"
   }
 }

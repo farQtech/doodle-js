@@ -1,0 +1,27 @@
+{
+  "name": "doodle",
+  "version": "1.0.0",
+  "description": "A vanilla JavaScript framework to draw on anything web.",
+  "main": "src/doodle.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/farQtech/doodle-js.git"
+  },
+  "keywords": [
+    "doodle",
+    "js",
+    "doodle-js"
+  ],
+  "author": "farqtech",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/farQtech/doodle-js/issues"
+  },
+  "homepage": "https://github.com/farQtech/doodle-js#readme",
+  "devDependencies": {
+    "jest": "^29.3.1"
+  }
+}

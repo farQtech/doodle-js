@@ -1,3 +1,5 @@
+require('./doodle.core')
+
 /**
  * Function implements SingleTon pattern to provide single instance for doodle js in whole application scope.
  */

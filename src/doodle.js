@@ -1,4 +1,4 @@
-require('./doodle.core')
+const Core = require('./doodle.core')
 
 /**
  * Function implements SingleTon pattern to provide single instance for doodle js in whole application scope.
@@ -22,3 +22,5 @@ var Doodle = (function () {
         }
     };
 })();
+
+module.exports = Doodle;

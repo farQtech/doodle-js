@@ -4,7 +4,8 @@
   "description": "A vanilla JavaScript framework to draw on anything web.",
   "main": "src/doodle.js",
   "scripts": {
-    "test": "test"
+    "test": "jest"
+
   },
   "repository": {
     "type": "git",

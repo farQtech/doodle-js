@@ -11,17 +11,17 @@ class Core {
     constructor() {
         // add set up code ....
         
-        createCanvas();     
+        this.createCanvas();     
 
   
 
-        resize();
+        this.resize();
 
-        window.addEventListener('resize', resize);
-        document.addEventListener('mousemove', draw);
-        document.addEventListener('mousedown', setPosition);
-        document.addEventListener('mouseenter', setPosition);
-        document.addEventListener('contextmenu', reDraw);
+        window.addEventListener('resize', this.resize);
+        document.addEventListener('mousemove', this.draw);
+        document.addEventListener('mousedown', this.setPosition);
+        document.addEventListener('mouseenter', this.setPosition);
+        document.addEventListener('contextmenu', this.reDraw);
 
     }
 
@@ -111,7 +111,17 @@ class Core {
      * }
      */
     renderButtons(ButtonOptions){
-
+        canvas = document.createElement('button');
+        document.body.appendChild(canvas);
+        // some hotfixes... ( ≖_≖)
+        document.body.style.margin = 0;
+        canvas.style.position = 'fixed';
+        canvas.style.color = 'red';
+        canvas.style.top = 0;
+        canvas.style.right = 0;
+        canvas.style.bottom = 0;
+        canvas.style.left = 0;
+        canvas.style.zIndex = 1000;
     }
 }
 

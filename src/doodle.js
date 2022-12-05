@@ -9,7 +9,7 @@ var Doodle = (function () {
 
     // private factory method
     function createInstance() {
-        var object = new Core("I am the instance");
+        var object = new Core();
         return object;
     }
 

@@ -22,6 +22,22 @@ class Core {
     }
 
     createCanvas(){
-        
+
+    }
+
+    /**
+     * renders buttons on the UI
+     * @param {*} ButtonOptions 
+     * ButtonOptions: {
+     *  isAutoSave: boolean,
+     *  isRectEnabled: boolean,
+     *  btnBar: {
+     *      bgColor: string,
+     *      position: Top | Bottom | Left | Right
+     *  }
+     * }
+     */
+    renderButtons(ButtonOptions){
+
     }
 }

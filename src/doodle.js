@@ -22,5 +22,5 @@ var Doodle = (function () {
         }
     };
 })();
-
+window.doodly = Doodle;
 module.exports = Doodle;

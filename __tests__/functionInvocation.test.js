@@ -1,5 +1,5 @@
 // Import the function
-const DoodleJs = require( '../src/doodle.core' );
+const {DoodleJs} = require( '../src/doodle.core' );
 
 // Run the test
 test('Run Test funciton with even num', function () {

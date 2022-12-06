@@ -153,6 +153,7 @@ const DoodleJs = new function () {
         button.style.cursor = 'pointer';
         button.style.fontSize = '14px';
         button.style.right = 0;
+        button.style.top = 0;
         button.style.zIndex = 4000;
         button.innerHTML = ButtonOptions.name;
         button.onclick = ButtonOptions.handler;

@@ -1,4 +1,4 @@
-const DoodleJs = new function (options) {
+const DoodleJs = new function () {
     //canvas element
     var canvas;
     //canvas context  
@@ -8,6 +8,14 @@ const DoodleJs = new function (options) {
 
     // In-memory global state for drawings
     var pointsToSave = [];
+
+    /**
+     * Returns all drawings done on the canvas
+     * @returns Drawings[]
+     */
+    this.getDrawings = function(){
+        return pointsToSave;
+    }
 
     /**
      * Sets required event handlers to appropriate events

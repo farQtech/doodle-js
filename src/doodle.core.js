@@ -231,7 +231,7 @@ function init() {
         },
         {
             id: 'djsPncl',
-            name: 'pencil',
+            name: 'Pencil',
             handler: drawPencil,
             marginTop: '70px'
         },

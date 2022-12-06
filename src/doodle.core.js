@@ -1,97 +1,93 @@
-class Core {
+const DoodleJs = new function (options) {
     //canvas element
-     canvas;
+    var canvas;
     //canvas context  
-     ctx;
+    var ctx;
     // last known position
-    pos = { x: 0, y: 0 };
+    var pos = { x: 0, y: 0 };
 
-    pointsToSave = [];
+    var pointsToSave = [];
 
-    constructor() {
-        this.createCanvas();     
-
-        this.resize();
-
+    this.setEventHandlers = function () {
         window.addEventListener('resize', this.resize);
         document.addEventListener('mousemove', this.draw);
         document.addEventListener('mousedown', this.setPosition);
         document.addEventListener('mouseenter', this.setPosition);
         document.addEventListener('contextmenu', this.reDraw);
-
     }
 
+
     // set cursor positions.
-    setPosition(event) {
-        this.pos.x = event.clientX;
-        this.pos.y = event.clientY;
+    this.setPosition = function (event) {
+        pos.x = event.clientX;
+        pos.y = event.clientY;
     }
 
     // resize canvas
-    resize() {
-        this.ctx.canvas.width = window.innerWidth;
-        this.ctx.canvas.height = window.innerHeight;
+    this.resize = function () {
+        ctx.canvas.width = window.innerWidth;
+        ctx.canvas.height = window.innerHeight;
     }
 
-    draw(mouseEvent) {
-        this.pointsToSave.push({ x: this.pos.x, y: this.pos.y, mouseEvent: mouseEvent });
+    this.draw = function (mouseEvent) {
+        pointsToSave.push({ x: pos.x, y: pos.y, mouseEvent: mouseEvent });
 
         event.preventDefault();
 
         // mouse left button must be pressed
         if (mouseEvent.buttons !== 1) return;
 
-        this.ctx.beginPath(); // begin
+        ctx.beginPath(); // begin
 
-        this.ctx.lineWidth = 5;
-        this.ctx.lineCap = 'round';
-        this.ctx.strokeStyle = '#c0392b';
+        ctx.lineWidth = 5;
+        ctx.lineCap = 'round';
+        ctx.strokeStyle = '#c0392b';
 
-        this.ctx.moveTo(this.pos.x, this.pos.y); // from
-        setPosition(mouseEvent);
-        this.ctx.lineTo(this.pos.x, this.pos.y); // to
+        ctx.moveTo(pos.x, pos.y); // from
+        DoodleJs.setPosition(mouseEvent);
+        ctx.lineTo(pos.x, pos.y); // to
 
-        this.ctx.stroke(); // draw it!
+        ctx.stroke(); // draw it!
     }
 
-    reDraw() {
+    this.reDraw = function () {
         // clear canvas
-        this.ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         // redraw
-        this.pointsToSave.forEach(point => {
+        pointsToSave.forEach(point => {
             // mouse left button must be pressed
             if (point.mouseEvent.buttons !== 1) return;
 
-            this.ctx.beginPath(); // begin
+            ctx.beginPath(); // begin
 
-            this.ctx.lineWidth = 5;
-            this.ctx.lineCap = 'round';
-            this.ctx.strokeStyle = '#000';
+            ctx.lineWidth = 5;
+            ctx.lineCap = 'round';
+            ctx.strokeStyle = '#000';
 
-            this.ctx.moveTo(point.x, point.y); // from
-            setPosition(point.mouseEvent);
-            this.ctx.lineTo(point.x, point.y); // to
+            ctx.moveTo(point.x, point.y); // from
+            DoodleJs.setPosition(point.mouseEvent);
+            ctx.lineTo(point.x, point.y); // to
 
-            this.ctx.stroke(); // draw it!
+            ctx.stroke(); // draw it!
         });
     }
 
-    createCanvas() {
-        this.canvas = document.createElement('canvas');
-        document.body.appendChild(this.canvas);
+    this.createCanvas = function () {
+        canvas = document.createElement('canvas');
+        document.body.appendChild(canvas);
         // some hotfixes... ( ≖_≖)
         document.body.style.margin = 0;
-        this.canvas.style.position = 'fixed';
-        this.canvas.style.background = 'transparent';
-        this.canvas.style.top = 0;
-        this.canvas.style.right = 0;
-        this.canvas.style.bottom = 0;
-        this.canvas.style.left = 0;
-        this.canvas.style.zIndex = 1000;
+        canvas.style.position = 'fixed';
+        canvas.style.background = 'transparent';
+        canvas.style.top = 0;
+        canvas.style.right = 0;
+        canvas.style.bottom = 0;
+        canvas.style.left = 0;
+        canvas.style.zIndex = 1000;
 
         // get canvas 2D context and set him correct size
-        this.ctx = this.canvas.getContext('2d');
+        ctx = canvas.getContext('2d');
     }
 
     /**
@@ -106,19 +102,44 @@ class Core {
      *  }
      * }
      */
-    renderButtons(ButtonOptions){
-        this.canvas = document.createElement('button');
-        document.body.appendChild(this.canvas);
+    this.renderButtons = function (options) {
+        canvas = document.createElement('button');
+        document.body.appendChild(canvas);
         // some hotfixes... ( ≖_≖)
         document.body.style.margin = 0;
-        this.canvas.style.position = 'fixed';
-        this.canvas.style.color = 'red';
-        this.canvas.style.top = 0;
-        this.canvas.style.right = 0;
-        this.canvas.style.bottom = 0;
-        this.canvas.style.left = 0;
-        this.canvas.style.zIndex = 1000;
+        canvas.style.position = 'fixed';
+        canvas.style.color = 'red';
+        canvas.style.top = 0;
+        canvas.style.right = 0;
+        canvas.style.bottom = 0;
+        canvas.style.left = 0;
+        canvas.style.zIndex = 1000;
     }
 }
 
-module.exports = Core;
+/**
+ * 
+ */
+function startDraw() {
+    DoodleJs.createCanvas();
+    DoodleJs.resize();
+    DoodleJs.setEventHandlers();
+}
+
+
+function clear() {
+
+}
+
+function reDraw(drawing){
+
+}
+
+function drawRect() {
+
+}
+
+
+function reDrawRect() {
+    
+}

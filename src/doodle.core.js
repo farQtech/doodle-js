@@ -57,9 +57,9 @@ const DoodleJs = new function () {
 
         ctx.beginPath(); // begin
 
-        ctx.lineWidth = 5;
+        ctx.lineWidth = 2;
         ctx.lineCap = 'round';
-        ctx.strokeStyle = '#c0392b';
+        ctx.strokeStyle = '#2196f3';
 
         ctx.moveTo(pos.x, pos.y); // from
         DoodleJs.setPosition(mouseEvent);
@@ -142,13 +142,16 @@ const DoodleJs = new function () {
     this.renderBtn = function (ButtonOptions) {
         button = document.createElement('button');
         document.body.appendChild(button);
-        button.style.color = 'red';
-        button.style.borderRadius = '50%';
+        button.style.color = 'white';
+        button.style.backgroundColor = '#2196f3';
+        button.style.borderRadius = '64px';
+        button.style.border = '1px solid #4054c5';
         button.style.marginTop = ButtonOptions.marginTop;
         button.style.position = 'absolute';
-        button.style.width = '50px';
-        button.style.height = '50px';
+        button.style.width = '63px';
+        button.style.height = '30px';
         button.style.cursor = 'pointer';
+        button.style.fontSize = '14px';
         button.style.right = 0;
         button.style.zIndex = 4000;
         button.innerHTML = ButtonOptions.name;
@@ -217,25 +220,26 @@ function init() {
         {
             id: 'djsRst',
             name: 'Reset',
-            handler: DoodleJs.reset
+            handler: DoodleJs.reset,
+
         },
         {
             id: 'djsOvl',
             name: 'Oval',
             handler: drawOval,
-            marginTop: '60px'
+            marginTop: '35px',
         },
         {
             id: 'djsPncl',
             name: 'pencil',
             handler: drawPencil,
-            marginTop: '120px'
+            marginTop: '70px'
         },
         {
             id: 'djsRdrw',
             name: 'ReDraw',
             handler: reDraw,
-            marginTop: '180px'
+            marginTop: '105px'
         }
     ]);
 }

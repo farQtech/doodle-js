@@ -76,8 +76,7 @@ const DoodleJs = new function (options) {
     this.createCanvas = function () {
         canvas = document.createElement('canvas');
         document.body.appendChild(canvas);
-        // some hotfixes... ( ≖_≖)
-        document.body.style.margin = 0;
+        // document.body.style.margin = 0;
         canvas.style.position = 'fixed';
         canvas.style.background = 'transparent';
         canvas.style.top = 0;
@@ -115,6 +114,10 @@ const DoodleJs = new function (options) {
         canvas.style.left = 0;
         canvas.style.zIndex = 1000;
     }
+
+    this.testFunc = function(n) {
+        return n%2 == 0;
+    }
 }
 
 /**
@@ -143,3 +146,5 @@ function drawRect() {
 function reDrawRect() {
     
 }
+
+module.exports = DoodleJs;

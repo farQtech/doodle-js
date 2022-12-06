@@ -76,8 +76,7 @@ const DoodleJs = new function (options) {
     this.createCanvas = function () {
         canvas = document.createElement('canvas');
         document.body.appendChild(canvas);
-        // some hotfixes... ( ≖_≖)
-        document.body.style.margin = 0;
+        // document.body.style.margin = 0;
         canvas.style.position = 'fixed';
         canvas.style.background = 'transparent';
         canvas.style.top = 0;
@@ -154,6 +153,10 @@ const DoodleJs = new function (options) {
     this.bindhandlerOnCanvasClick = function(handler){
         canvas.onclick = handler;
     }
+
+    this.testFunc = function(n) {
+        return n%2 == 0;
+    }
 }
 
 /**
@@ -181,3 +184,7 @@ function reDrawOval() {
     document.removeEventListener('mousemove', DoodleJs.draw);
     DoodleJs.bindhandlerOnCanvasClick(DoodleJs.drawOval);
 }
+
+
+
+module.exports = DoodleJs;

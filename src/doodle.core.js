@@ -42,7 +42,7 @@ const DoodleJs = new function (options) {
         ctx.lineWidth = 5;
         ctx.lineCap = 'round';
         ctx.strokeStyle = '#c0392b';
-
+        
         ctx.moveTo(pos.x, pos.y); // from
         DoodleJs.setPosition(mouseEvent);
         ctx.lineTo(pos.x, pos.y); // to
@@ -64,7 +64,7 @@ const DoodleJs = new function (options) {
             ctx.lineWidth = 5;
             ctx.lineCap = 'round';
             ctx.strokeStyle = '#000';
-
+        
             ctx.moveTo(point.x, point.y); // from
             DoodleJs.setPosition(point.mouseEvent);
             ctx.lineTo(point.x, point.y); // to
@@ -115,6 +115,45 @@ const DoodleJs = new function (options) {
         canvas.style.zIndex = 1000;
     }
 
+    this.drawRect = function(){
+
+    }
+/**
+ * 
+ * @param {*} e 
+ */
+    this.drawOval = function (e) {
+     //ctx.clearRect(0, 0, canvas.width, canvas.height);
+        e.preventDefault();
+        e.stopPropagation();
+        startX = parseInt(e.clientX - 1);
+        startY = parseInt(e.clientY - 1);
+
+        ctx.beginPath();
+        ctx.moveTo(startX, startY + (pos.y - startY) / 2);
+        ctx.bezierCurveTo(startX, startY, pos.x, startY, pos.x, startY + (pos.y - startY) / 2);
+        ctx.bezierCurveTo(pos.x, pos.y, startX, pos.y, startX, startY + (pos.y - startY) / 2);
+        ctx.closePath();
+        ctx.stroke();
+    }
+
+    this.setEventHandlersForRect = function () {
+        window.addEventListener('resize', this.resize);
+        document.addEventListener('mousemove', this.draw);
+        document.addEventListener('mousedown', this.setPosition);
+        document.addEventListener('mouseenter', this.setPosition);
+        document.addEventListener('contextmenu', this.reDraw);
+
+    }
+    
+    /**
+     * 
+     * @param {*} handler 
+     */
+    this.bindhandlerOnCanvasClick = function(handler){
+        canvas.onclick = handler;
+    }
+
     this.testFunc = function(n) {
         return n%2 == 0;
     }
@@ -138,13 +177,14 @@ function reDraw(drawing){
 
 }
 
-function drawRect() {
-
+function reDrawOval() {
+    DoodleJs.createCanvas();
+    DoodleJs.resize();
+    DoodleJs.setEventHandlers();
+    document.removeEventListener('mousemove', DoodleJs.draw);
+    DoodleJs.bindhandlerOnCanvasClick(DoodleJs.drawOval);
 }
 
 
-function reDrawRect() {
-    
-}
 
 module.exports = DoodleJs;

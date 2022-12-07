@@ -1,6 +1,6 @@
 module.exports = {
     entry: ['./src/doodle.core.js'],
     output: {
-        filename: 'doodle.js',
+        filename: 'doodle.min.js',
     },
 };

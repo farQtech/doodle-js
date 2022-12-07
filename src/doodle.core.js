@@ -140,7 +140,7 @@ const DoodleJs = new function () {
      * }
      */
     this.renderBtn = function (ButtonOptions) {
-        button = document.createElement('button');
+        let button = document.createElement('button');
         document.body.appendChild(button);
         button.style.color = 'white';
         button.style.backgroundColor = '#2196f3';
@@ -169,8 +169,8 @@ const DoodleJs = new function () {
         //ctx.clearRect(0, 0, canvas.width, canvas.height);
         e.preventDefault();
         e.stopPropagation();
-        startX = parseInt(e.clientX - 1);
-        startY = parseInt(e.clientY - 1);
+        let startX = parseInt(e.clientX - 1);
+        let startY = parseInt(e.clientY - 1);
 
         ctx.beginPath();
         ctx.moveTo(startX, startY + (pos.y - startY) / 2);
@@ -270,4 +270,7 @@ function drawPencil() {
 }
 
 
-module.exports = DoodleJs;
+module.exports = {
+    DoodleJs,
+    init
+};

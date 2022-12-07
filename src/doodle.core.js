@@ -222,25 +222,26 @@ function init() {
             id: 'djsRst',
             name: 'Reset',
             handler: DoodleJs.reset,
+            marginTop: '50px'
 
         },
         {
             id: 'djsOvl',
             name: 'Oval',
             handler: drawOval,
-            marginTop: '35px',
+            marginTop: '85px',
         },
         {
             id: 'djsPncl',
             name: 'Pencil',
             handler: drawPencil,
-            marginTop: '70px'
+            marginTop: '120px'
         },
         {
             id: 'djsRdrw',
             name: 'ReDraw',
             handler: reDraw,
-            marginTop: '105px'
+            marginTop: '155px'
         }
     ]);
 }

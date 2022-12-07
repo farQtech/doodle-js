@@ -1,8 +1,7 @@
 // Import the function
-const Doodle = require( '../src/doodle' );
+const Doodle = require( '../src/doodle.core' );
 
 // Run the test
 test('Library Initialization', function () {
-	console.log(Doodle.getInstance)
-	expect(Doodle.getInstance()).toHaveProperty();
+	expect(typeof Doodle).toBe('object');
 });

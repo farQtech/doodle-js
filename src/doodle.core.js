@@ -85,7 +85,8 @@ const DoodleJs = new function () {
 
             ctx.lineWidth = 5;
             ctx.lineCap = 'round';
-            ctx.strokeStyle = '#000';
+            ctx.strokeStyle = '#2196f3';
+
 
             ctx.moveTo(point.x, point.y); // from
             DoodleJs.setPosition(point.mouseEvent);
@@ -171,13 +172,14 @@ const DoodleJs = new function () {
         e.stopPropagation();
         startX = parseInt(e.clientX - 1);
         startY = parseInt(e.clientY - 1);
-
+        ctx.strokeStyle = '#2196f3';
         ctx.beginPath();
         ctx.moveTo(startX, startY + (pos.y - startY) / 2);
         ctx.bezierCurveTo(startX, startY, pos.x, startY, pos.x, startY + (pos.y - startY) / 2);
         ctx.bezierCurveTo(pos.x, pos.y, startX, pos.y, startX, startY + (pos.y - startY) / 2);
         ctx.closePath();
         ctx.stroke();
+
     }
 
     
